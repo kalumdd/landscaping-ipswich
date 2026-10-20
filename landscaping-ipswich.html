@@ -9,6 +9,7 @@
 <meta property="og:title" content="Landscaping Ipswich | Patios, Lawns, Fencing &amp; Garden Design">
 <meta property="og:description" content="Landscaping in Ipswich: patios, paving, turf, artificial grass, fencing, decking, drainage and planting. See what each service involves, then book a free site visit.">
 <meta property="og:type" content="website"><meta property="og:locale" content="en_GB">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Ipswich Landscape Co.", "address": {"@type": "PostalAddress", "addressLocality": "Ipswich", "addressRegion": "Suffolk", "addressCountry": "GB"}, "areaServed": [{"@type": "City", "name": "Ipswich"}, {"@type": "Place", "name": "Ipswich"}, {"@type": "Place", "name": "Kesgrave"}, {"@type": "Place", "name": "Martlesham Heath"}, {"@type": "Place", "name": "Rushmere St Andrew"}, {"@type": "Place", "name": "Woodbridge"}, {"@type": "Place", "name": "Felixstowe"}, {"@type": "Place", "name": "Westerfield"}, {"@type": "Place", "name": "Claydon"}], "description": "Landscaping in Ipswich: patios, paving, turf, artificial grass, fencing, decking, drainage and planting. See what each service involves, then book a free site visit."}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does a garden makeover take?", "acceptedAnswer": {"@type": "Answer", "text": "A new lawn or fence line is often one to three days. A full rebuild with a patio, walls, turf and planting usually takes two to four weeks, depending on size and access. You get a schedule with your quote."}}, {"@type": "Question", "name": "Is porcelain or sandstone better for a patio?", "acceptedAnswer": {"@type": "Answer", "text": "Porcelain is harder wearing, stain resistant and close to maintenance free, but it costs more and needs a primer to bond to the mortar bed. Sandstone costs less and has natural colour variation, but it weathers and needs occasional cleaning. We bring samples to the site visit."}}, {"@type": "Question", "name": "Can you fix a waterlogged garden?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes. On Ipswich's heavier clay soils the usual fixes are a soakaway, a French drain along the low side, or raising the lawn with free-draining topsoil. We check where the water collects before suggesting anything."}}, {"@type": "Question", "name": "Will you work from my own design?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you have a plan from a garden designer or a sketch of your own, we will price from it and suggest changes only where the ground or drainage needs them."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +36,24 @@ p{margin:0}
 /* header */
 .site-head{background:var(--surface);border-bottom:1px solid var(--line)}
 .site-head .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:14px}
-.brand{font-family:var(--font-display);font-size:1.3rem;text-decoration:none;font-weight:700}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg);min-width:0}
+.logo .mark{flex:none;border-radius:12px}
+.logo-text{display:flex;flex-direction:column;line-height:1.05;min-width:0}
+.logo-name{font-family:var(--font-display);font-size:1.35rem;font-weight:700;white-space:nowrap}
+.logo-tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;white-space:nowrap}
+.foot-brand{display:flex;flex-direction:column;gap:12px}
+.site-head .wrap{max-width:1240px}
+.nav{font-size:.9rem;gap:6px 14px;flex-wrap:nowrap;white-space:nowrap}
+@media (max-width:1180px){.site-head .wrap{flex-wrap:nowrap}.logo-tag{letter-spacing:.1em}}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;padding:8px 14px;border:1px solid var(--line);border-radius:var(--radius);font-weight:700;color:var(--fg)}
+.menu summary::-webkit-details-marker{display:none}
+.menu-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:20;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.18);padding:8px;display:flex;flex-direction:column;min-width:240px}
+.menu-panel a{display:block;padding:10px 12px;border-radius:6px;color:var(--fg)!important}
+.menu-panel a:hover{background:var(--soft)}
+@media (max-width:1180px){.nav > a:not(.nav-cta){display:none}.menu{display:block}.site-head .wrap{flex-wrap:nowrap}}
+@media (max-width:540px){.nav > .nav-cta{display:none}}
+@media (max-width:420px){.logo-tag{display:none}.logo .mark{width:40px;height:40px}.logo-name{font-size:1.15rem}}
 .nav{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:.95rem}
 .nav a{text-decoration:none;color:var(--muted)}
 .nav a[aria-current="page"]{color:var(--fg);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px}
@@ -133,9 +151,10 @@ h1,h2,h3{font-weight:400;letter-spacing:-.01em}
 </head>
 <body>
 <header class="site-head"><div class="wrap">
-<a class="brand" href="./">Ipswich Landscape Co.</a>
+<a class="logo" href="./" aria-label="Ipswich Landscape Co. home"><svg class="mark" viewBox="0 0 64 64" width="46" height="46" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#24382b"/><circle cx="46" cy="18" r="6" fill="#d9a35a" opacity=".9"/><path d="M0 44 Q18 32 36 41 T64 37 V64 H0Z" fill="#4f7a55"/><path d="M0 52 Q22 42 42 50 T64 48 V64 H0Z" fill="#b5762e"/><rect x="23.2" y="30" width="3.6" height="15" rx="1.2" fill="#eef0e6"/><circle cx="25" cy="25" r="9.5" fill="#9cc98a"/><circle cx="19.5" cy="29" r="6" fill="#86b876"/><circle cx="30.5" cy="29.5" r="6" fill="#86b876"/></svg><span class="logo-text"><span class="logo-name">Ipswich Landscape Co.</span><span class="logo-tag">Garden Design &amp; Landscaping</span></span></a>
 <nav class="nav" aria-label="Main"><a href="./">Landscaper Ipswich</a>
 <a href="landscaping-ipswich.html" aria-current="page">Landscaping Ipswich</a>
+<details class="menu"><summary>Menu</summary><div class="menu-panel"><a href="./">Landscaper Ipswich</a><a href="landscaping-ipswich.html" aria-current="page">Landscaping Ipswich</a></div></details>
 <a class="nav-cta" href="#quote">Free quote</a></nav>
 </div></header>
 <main>
@@ -180,7 +199,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.01em}
 </div></section>
 </main>
 <footer class="site-foot"><div class="wrap">
-<div><h3>Ipswich Landscape Co.</h3><p>Garden design and landscaping in Ipswich.</p></div>
+<div class="foot-brand"><a class="logo" href="./" aria-label="Ipswich Landscape Co. home"><svg class="mark" viewBox="0 0 64 64" width="46" height="46" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#24382b"/><circle cx="46" cy="18" r="6" fill="#d9a35a" opacity=".9"/><path d="M0 44 Q18 32 36 41 T64 37 V64 H0Z" fill="#4f7a55"/><path d="M0 52 Q22 42 42 50 T64 48 V64 H0Z" fill="#b5762e"/><rect x="23.2" y="30" width="3.6" height="15" rx="1.2" fill="#eef0e6"/><circle cx="25" cy="25" r="9.5" fill="#9cc98a"/><circle cx="19.5" cy="29" r="6" fill="#86b876"/><circle cx="30.5" cy="29.5" r="6" fill="#86b876"/></svg><span class="logo-text"><span class="logo-name">Ipswich Landscape Co.</span><span class="logo-tag">Garden Design &amp; Landscaping</span></span></a><p>Garden design and landscaping in Ipswich.</p></div>
 <div><h3>Opening hours</h3><ul><li>Monday to Friday, 8am to 6pm</li><li>Saturday by appointment</li></ul></div>
 <div><h3>Pages</h3><ul><li><a href="./">Landscaper Ipswich</a></li><li><a href="landscaping-ipswich.html">Landscaping Ipswich</a></li></ul></div>
 </div></footer>
